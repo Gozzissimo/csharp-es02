@@ -198,6 +198,8 @@ namespace Esercizio2 // Note: actual namespace depends on the project name.
                     finito = true;
                 }
             }
+
+            //TEORIA
             int v1, v2, v3;
             v1 = 10;
             v2 = 20;
