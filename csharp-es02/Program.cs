@@ -19,7 +19,7 @@
 //    -Alberi
 //    -Grafi
 
-namespace MyApp // Note: actual namespace depends on the project name.
+namespace Esercizio2 // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
@@ -105,11 +105,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 if (iChoice == 0)
                 {
                     numbers = new double[2];
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        Console.WriteLine("Inserisci un numero");
-                        numbers[i] = Convert.ToDouble(Console.ReadLine());
-                    }
+                    methods.PopolamentoArray(ref numbers);
 
                     double dSomma = numbers[0] + numbers[1];
                     Console.WriteLine("{0} + {1} = {2}", numbers[0], numbers[1], dSomma);
@@ -119,11 +115,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 else if (iChoice == 1)
                 {
                     numbers = new double[2];
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        Console.WriteLine("Inserisci un numero");
-                        numbers[i] = Convert.ToDouble(Console.ReadLine());
-                    }
+                    methods.PopolamentoArray(ref numbers);
 
                     double dProdotto = numbers[0] * numbers[1];
                     Console.WriteLine("{0} * {1} = {2}", numbers[0], numbers[1], dProdotto);
@@ -147,11 +139,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 else if (iChoice == 3)
                 {
                     numbers = new double[2];
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        Console.WriteLine("Inserisci un numero");
-                        numbers[i] = Convert.ToDouble(Console.ReadLine());
-                    }
+                    methods.PopolamentoArray(ref numbers);
 
                     double dSottrazione = numbers[0] - numbers[1];
                     Console.WriteLine("{0} - {1} = {2}", numbers[0], numbers[1], dSottrazione);
@@ -177,11 +165,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     numbers = new double[10];
                     double dSomma = 0;
 
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        Console.WriteLine("Inserisci un numero");
-                        numbers[i] = Convert.ToDouble(Console.ReadLine());
-                    }
+                    methods.PopolamentoArray(ref numbers);
 
                     foreach (double element in numbers)
                     {
@@ -200,11 +184,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     int iLunghezzaArray = Convert.ToInt32(Console.ReadLine());
                     numbers = new double[iLunghezzaArray];
 
-                    for (int i = 0; i < numbers.Length; i++)
-                    {
-                        Console.WriteLine("Inserisci un numero");
-                        numbers[i] = Convert.ToDouble(Console.ReadLine());
-                    }
+                    methods.PopolamentoArray(ref numbers);
 
                     double maxValue = numbers.Max();
                     double minValue = numbers.Min();
@@ -218,6 +198,41 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     finito = true;
                 }
             }
+            int v1, v2, v3;
+            v1 = 10;
+            v2 = 20;
+            NuovoMetodo(v1, ref v2, out v3);
+            Console.WriteLine("{0}, {1}, {2}", v1, v2, v3);
+
+            bool bret;
+            int iret;
+            (bret, iret) = ValoriMultipli(3, 4);
+            if (bret)
+            {
+                Console.WriteLine("La somma è andata bene e ha tornato: {0}", iret);
+            }
+        }
+
+        static int NuovoMetodo(int n1, ref int n2, out  int n3)
+        {
+            //n1 passato per valore anche se lo modifico, la modifica non è propagata al chiamante
+            n1 = 1000;
+
+            //n2 è passato by reference. Quando lo modifico, il suo valore cambia anche nel chiamante
+            n2 = 2000;
+
+            //n3, passato solo come out, non mi interessa il suo valore in ingresso. Conta solo
+            //che sono obbligato ad assegnargli un valore in uscita
+            n3 = 3000;
+
+            return 0;
+        }
+
+        //Questo metodo torna 2 valori, un bool e un int
+        static (bool, int) ValoriMultipli(int a, int b)
+        {
+            //mettendo i valori tra parentesi tonde, si construisce un valore di ritorno multiplo
+            return (true, a + b);
         }
     }
 }
