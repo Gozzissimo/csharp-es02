@@ -156,15 +156,18 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("{0} - {1} = {2}", numbers[0], numbers[1], dSottrazione);
                 }
 
-                // quadrato
+                // potenza
                 else if (iChoice == 4)
                 {
                     numbers = new double[1];
                     Console.WriteLine("Inserisci un numero");
                     numbers[0] = Convert.ToDouble(Console.ReadLine());
 
-                    double dQuadrato = numbers[0] * numbers[0];
-                    Console.WriteLine("Il quadrato di {0} è {1}", numbers[0], dQuadrato);
+                    Console.WriteLine("Inserisci la potenza a cui vuoi elevare");
+                    double dPotenza = Convert.ToDouble(Console.ReadLine());
+
+                    double dRisultatoPotenza = Math.Pow(numbers[0], dPotenza);
+                    Console.WriteLine("{0} elevato alla {1} da {2}", numbers[0], dPotenza, dRisultatoPotenza);
                 }
 
                 // media
@@ -187,8 +190,28 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     double dMedia = dSomma / numbers.Length;
 
                     Console.WriteLine("La media dei numeri inseriti è {0}", dMedia);
+                }
+                
+                // massimo
+                else if (iChoice == 6)
+                {
+                    numbers = new double[10];
+                    double dSomma = 0;
 
+                    for (int i = 0; i < numbers.Length; i++)
+                    {
+                        Console.WriteLine("Inserisci un numero");
+                        numbers[i] = Convert.ToDouble(Console.ReadLine());
+                    }
 
+                    foreach (double element in numbers)
+                    {
+                        dSomma = +element;
+                    }
+
+                    double dMedia = dSomma / numbers.Length;
+
+                    Console.WriteLine("La media dei numeri inseriti è {0}", dMedia);
                 }
 
                 //validation
