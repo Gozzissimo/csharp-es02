@@ -209,7 +209,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     double maxValue = numbers.Max();
                     double minValue = numbers.Min();
 
-                    Console.WriteLine("Il numero massimo tra i numeri inseriti è {0}, il mininmo è {1}", maxValue, minValue);
+                    Console.WriteLine("Il numero minimo tra i numeri inseriti è {0}, il massimo è {1}", minValue, maxValue);
                 }
 
                 //validation
