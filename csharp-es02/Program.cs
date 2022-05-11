@@ -96,6 +96,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 Console.WriteLine("3 - sottrazione");
                 Console.WriteLine("4 - quadrato");
                 Console.WriteLine("5 - media");
+                Console.WriteLine("6 - max e min");
                 Console.WriteLine("9 - Esci");
 
                 int iChoice = Convert.ToInt32(Console.ReadLine());
@@ -192,11 +193,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("La media dei numeri inseriti è {0}", dMedia);
                 }
                 
-                // massimo
+                // minimo e massimo
                 else if (iChoice == 6)
                 {
-                    numbers = new double[10];
-                    double dSomma = 0;
+                    Console.WriteLine("Quanti numeri vuoi inserire?");
+                    int iLunghezzaArray = Convert.ToInt32(Console.ReadLine());
+                    numbers = new double[iLunghezzaArray];
 
                     for (int i = 0; i < numbers.Length; i++)
                     {
@@ -204,14 +206,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         numbers[i] = Convert.ToDouble(Console.ReadLine());
                     }
 
-                    foreach (double element in numbers)
-                    {
-                        dSomma = +element;
-                    }
+                    double maxValue = numbers.Max();
+                    double minValue = numbers.Min();
 
-                    double dMedia = dSomma / numbers.Length;
-
-                    Console.WriteLine("La media dei numeri inseriti è {0}", dMedia);
+                    Console.WriteLine("Il numero massimo tra i numeri inseriti è {0}, il mininmo è {1}", maxValue, minValue);
                 }
 
                 //validation
